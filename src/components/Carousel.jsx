@@ -14,13 +14,13 @@ class Carousel extends Component {
 
   handlePrev = () => {
     if (this.state.currImg > 0) {
-      this.setState({ currImg: this.state.currImg - 1 });
+      this.setState(prevState => ({ currImg: prevState.currImg - 1 }));
     }
   };
 
   handleNext = () => {
     if (this.state.currImg < images.length - 1) {
-      this.setState({ currImg: this.state.currImg + 1 });
+      this.setState(prevState => ({ currImg: prevState.currImg + 1 }));
     }
   };
 
@@ -33,14 +33,11 @@ class Carousel extends Component {
         >
           <div className="left" onClick={this.handlePrev}>
             <ArrowBackIosIcon style={{ fontSize: 30 }} />
-
           </div>
 
           <div className="center">
             <h1>{images[this.state.currImg].title}</h1>
-            
             <p>{images[this.state.currImg].subtitle}</p>
-
           </div>
 
           <div className="right" onClick={this.handleNext}>
